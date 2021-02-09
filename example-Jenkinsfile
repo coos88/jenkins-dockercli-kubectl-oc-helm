@@ -1,0 +1,29 @@
+pipeline {
+    tools {
+    	# be sure to configure a maven installation in 'Manage jenkins' -> 'Global tools' with this name
+        maven 'maven'
+    }
+    agent any
+    stages {
+        stage('mvn test') {
+            steps {
+                sh 'mvn -version'
+            }
+        }
+        stage('docker test') {            
+            steps {
+                sh 'docker version'    
+            }
+        }
+        stage('kubectl test') {
+            steps {
+                sh 'kubectl'
+            }
+        }
+	stage('oc test') {
+            steps {
+                sh 'oc version'
+            }
+        }
+    }
+}
