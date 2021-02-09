@@ -1,6 +1,6 @@
 pipeline {
     tools {
-    	# be sure to configure a maven installation in 'Manage jenkins' -> 'Global tools' with this name
+    	// be sure to configure a maven installation in 'Manage jenkins' -> 'Global tools' with this name
         maven 'maven'
     }
     agent any
@@ -23,6 +23,11 @@ pipeline {
 	stage('oc test') {
             steps {
                 sh 'oc version'
+            }
+        }
+	stage('helm test') {
+            steps {
+                sh 'helm version'
             }
         }
     }
