@@ -7,7 +7,6 @@ pipeline {
           withDockerRegistry(credentialsId: 'dockerhub', url: 'https://registry.hub.docker.com/') {
             sh "docker push coos88/jenkins-dockercli-kubectl-oc-helm"
           }
-        }
       }
     }
   }
